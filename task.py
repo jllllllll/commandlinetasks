@@ -2,8 +2,12 @@
 
 import os
 
+# the app looks in the user's home directory for the task file
+homedir = os.environ['HOME']
+taskfile = homedir + '/tasks.txt'
+
 # opening tasks text file
-ifile = open('PATH TO TASK LIST.txt','rU')
+ifile = open(taskfile,'rU')
 
 print '\nTasks'
 print '--------------------------------------'
@@ -30,5 +34,6 @@ sop = str(op)
 for k in tasks:
 	if k[0] == sop:
 		os.system(k[2])
-
-
+        else:
+            print "You entered a number without an assocated tasks.\n"
+            quit()
