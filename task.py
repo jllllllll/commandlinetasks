@@ -19,21 +19,33 @@ tasks = []
 for line in ifile:
 	tasks.append(line.split('|'))
 
-# Print each line of the array
 for j in tasks:
-	print j[0] + '\t' + j[1]
+    print j[0] + '\t' + j[1]
 
-# Creating my input variable
-op = input('\nInput task number:  ')
 
-# Converting the op (option) variable to a string since below I will be matching to the number from my task lists which is a string
-sop = str(op)
+# print str(tasks)
 
-# After receiving the input, the application loops through the array again and if sop mataches the task number (k[0] - the first field in the tasks list), then the app executes the command.
+tasks_dict = dict()
 
-for k in tasks:
-	if k[0] == sop:
-		os.system(k[2])
-        else:
-            print "You entered a number without an assocated tasks.\n"
-            quit()
+for i in tasks:
+    tasks_dict[i[0]] = [i[1],i[2]]
+
+# print str(tasks_dict)
+
+tac = "y"
+taskid = ""
+
+while tac =="y":
+   taskid = raw_input("\nInput task number:  ")
+   if tasks_dict.has_key(taskid) == True:
+      tac = "n"
+      taskcommand = tasks_dict[taskid][1]
+   else:
+      print "\nError!  You entered an incorrect paramenter.\n"
+      ta = raw_input("Try again? (Y/N): ")
+      tac = ta.lower()
+      if tac != "y":
+         print "\nNow Exiting.\n"
+         quit()
+
+os.system(taskcommand)
