@@ -1,4 +1,5 @@
 #! /usr/bin/python
+v = "v2.0"
 
 import os
 
@@ -9,9 +10,12 @@ taskfile = homedir + '/tasks.txt'
 # opening tasks text file
 ifile = open(taskfile,'rU')
 
-print '\nTasks'
-print '--------------------------------------'
+b = '--------------------------------------------------------'
+sp = (len(b)-12) * " "
 
+
+print '\nTasks\t' + sp + v
+print b
 # creating an empty array.  this will be populated with all the tasks.
 tasks = []
 
@@ -48,4 +52,5 @@ while tac =="y":
          print "\nNow Exiting.\n"
          quit()
 
+print "\n" + b
 os.system(taskcommand)
