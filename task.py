@@ -26,15 +26,10 @@ for line in ifile:
 for j in tasks:
     print j[0] + '\t' + j[1]
 
-
-# print str(tasks)
-
 tasks_dict = dict()
 
 for i in tasks:
     tasks_dict[i[0]] = [i[1],i[2]]
-
-# print str(tasks_dict)
 
 tac = "y"
 taskid = ""
