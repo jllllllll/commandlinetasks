@@ -4,24 +4,23 @@ v = "v2.0"
 import os
 
 # the app looks in the user's home directory for the task file
-homedir = os.environ['HOME']
-taskfile = homedir + '/tasks.txt'
+taskfile = str(os.environ['HOME']) + '/tasks.txt'
 
 # opening tasks text file
 ifile = open(taskfile,'rU')
 
 b = '--------------------------------------------------------'
-sp = (len(b)-12) * " "
+sp = (len(b)-9) * " "
 
 
-print '\nTasks\t' + sp + v
+print '\nTasks' + sp + v
 print b
 # creating an empty array.  this will be populated with all the tasks.
 tasks = []
 
-# Reading each line in my tasks file and using the .split function to tell python where my file is delimited.  My tasks file is pipe delimited but you may use another delimiter.
+# Reading each line in my tasks file and using the .split function to tell python where my file is delimited.  My tasks file is comma delimited but you may use another delimiter.
 for line in ifile:
-	tasks.append(line.split('|'))
+	tasks.append(line.split(','))
 
 for j in tasks:
     print j[0] + '\t' + j[1]
